@@ -1,0 +1,54 @@
+@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject RoleManager<IdentityRole> RoleMan
+@inject UserManager<Lab8Model> UserMan
+
+@{
+    ViewData["Title"] = "Admin";
+}
+<h2>
+    Create Role
+</h2>
+<form asp-action="CreateRole" asp-controller="Admin">
+    @Html.AntiForgeryToken()
+    <label for="RoleName" class="control-label">Role Name</label>
+    <input type="text" id="RoleName" name="RoleName" class="form-control" />
+    <button type="Submit" class="btn btn-default">Create Role</button>
+</form>
+<h2>
+    Delete Role
+</h2>
+    <form asp-action="DeleteRole" asp-controller="Admin">
+        @Html.AntiForgeryToken()
+        <label for="RoleName" class="control-label">Role Name</label>
+        @Html.DropDownList("RoleName", new SelectList(RoleMan.Roles.ToList()), "Select Role",new { @class = "form-control" })
+        <button type="Submit" class="btn btn-default">Delete Role</button>
+    </form>
+    <h2>
+    Delete User
+    </h2>
+       <form asp-action="DeleteUser" asp-controller="Admin">
+        @Html.AntiForgeryToken()
+        @Html.Label("Email", "Email", new { @class = "control-label" })
+        @Html.DropDownList("Email", new SelectList(UserMan.Users.ToList()), "Select User", new { @class = "form-control" })
+        <button type="Submit" class="btn btn-default">Delete User</button>
+    </form>
+    <h2>
+    Add User to Role
+    </h2>
+<form asp-action="AddUserToRole" asp-controller="Admin" method="post">
+    @Html.AntiForgeryToken()
+    <!--@Html.Hidden("Email", User.Identity.Name)-->
+    @Html.Label("Email", "Email", new { @class = "control-label" })
+    @Html.DropDownList("Email", new SelectList(UserMan.Users.ToList()), "Select User", new { @class = "form-control" })
+    @Html.Label("RoleName", "RoleName", new { @class = "control-label" })
+    @Html.DropDownList("RoleName", new SelectList(RoleMan.Roles.ToList()), "Select Role",new { @class = "form-control" })
+    <button type="submit" class="btn btn-primary">Join Role</button>
+</form>
+@foreach (var role in RoleMan.Roles.ToList()){
+    <h2>@role.Name</h2>
+    @foreach(var user in UserMan.GetUsersInRoleAsync(role.Name).Result)
+    {
+        <div>@user.UserName</div>
+    }
+}

@@ -1,0 +1,37 @@
+@model Lab8.Models.WorkOutModel
+@{
+    ViewData["Title"] = "PostBlog";
+}
+<body>
+    <h1>
+        Post Blog
+    </h1>
+@using (Html.BeginForm("PostBlog", "WorkOut", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(m=>m.PostedBy, new { @class = "control-label" })
+    @Html.TextBoxFor(m=>m.PostedBy, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PostedBy)
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.WName, new { @class = "control-label" })
+        @Html.TextBoxFor(m=>m.WName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WName)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.WDescription, new { @class = "control-label" })
+        @Html.TextAreaFor(m=>m.WDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WDescription)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.WRating, new { @class = "control-label" })
+        @Html.EditorFor(m=>m.WRating, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WRating)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.WDate, new { @class = "control-label" })
+        @Html.EditorFor(m=>m.WDate, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.WDate)
+    </div>
+   <button type="submit" class="btn btn-primary">Post Blog</button>
+}
+</body>

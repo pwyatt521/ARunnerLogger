@@ -1,0 +1,19 @@
+@model  BookModel
+<body>
+    <h1>
+        @Html.DisplayFor(m => m.BTitle)
+    </h1>
+    <h2>
+        @Html.DisplayFor(m => m.BAuthor)
+    </h2>
+    <h2>
+        @Html.DisplayFor(m => m.BRating)
+        / 10 stars
+    </h2>
+    <p>
+        @Html.DisplayFor(m=>m.BSummary)
+    </p>
+    <p>
+        @Html.DisplayFor(m=>m.BLength)
+    </p>
+</body>

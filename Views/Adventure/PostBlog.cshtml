@@ -1,0 +1,32 @@
+@model Lab8.Models.AdventureModel
+@{
+    ViewData["Title"] = "PostBlog";
+}
+<body>
+    <h1>
+        Post Blog
+    </h1>
+@using (Html.BeginForm("PostBlog", "Adventure", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.LabelFor(m=>m.PostedBy, new { @class = "control-label" })
+    @Html.TextBoxFor(m=>m.PostedBy, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.PostedBy)
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.AName, new { @class = "control-label" })
+        @Html.TextBoxFor(m=>m.AName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AName)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.ADescription, new { @class = "control-label" })
+        @Html.TextAreaFor(m=>m.ADescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ADescription)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.ARating, new { @class = "control-label" })
+        @Html.EditorFor(m=>m.ARating, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ARating)
+    </div>
+   <button type="submit" class="btn btn-primary">Post Blog</button>
+}
+</body>
