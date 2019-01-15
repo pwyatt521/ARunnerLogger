@@ -43,7 +43,7 @@
     @Html.DropDownList("Email", new SelectList(UserMan.Users.ToList()), "Select User", new { @class = "form-control" })
     @Html.Label("RoleName", "RoleName", new { @class = "control-label" })
     @Html.DropDownList("RoleName", new SelectList(RoleMan.Roles.ToList()), "Select Role",new { @class = "form-control" })
-    <button type="submit" class="btn btn-primary">Join Role</button>
+    <button type="submit" class="btn btn-primary">Add to Role</button>
 </form>
 @foreach (var role in RoleMan.Roles.ToList()){
     <h2>@role.Name</h2>

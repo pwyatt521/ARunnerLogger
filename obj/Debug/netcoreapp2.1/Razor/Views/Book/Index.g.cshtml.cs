@@ -25,7 +25,7 @@ using Lab8.Models;
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ee802b7b9a41a66cdc395878ddac2f82ed0f261c", @"/Views/Book/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"54392077b573ca062b662c621eb32a31c11c50ef", @"/Views/_ViewImports.cshtml")]
-    public class Views_Book_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<BookModel>>
+    public class Views_Book_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<InjuryModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Book", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -65,12 +65,12 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(71, 1018, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23fd03928bd54328b231cfd34146ec92", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26429b1268504eec8d391975d4fec89d", async() => {
                 BeginContext(77, 71, true);
                 WriteLiteral("\r\n    <h1>\r\n        Books\r\n    </h1>\r\n    <h2>\r\n    <div>\r\n            ");
                 EndContext();
                 BeginContext(148, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09997fe789ab4b629ea38302d5698f4b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30e2a271ef5346f69d61eddb28a32c15", async() => {
                     BeginContext(207, 9, true);
                     WriteLiteral("Post Blog");
                     EndContext();
@@ -125,7 +125,7 @@ WriteAttributeValue("", 479, Url.Action("View", "Book", new { @id = Book.ID }), 
                 WriteLiteral("</a>\r\n                    </p>\r\n                </div>\r\n                <div class=\"col-md-2\">\r\n                    ");
                 EndContext();
                 BeginContext(659, 346, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "534d6df3a92c4b85939502613c5a151b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0627860007bf457d80637a9693790e1f", async() => {
                     BeginContext(742, 26, true);
                     WriteLiteral("\r\n                        ");
                     EndContext();
@@ -205,7 +205,7 @@ WriteAttributeValue("", 856, Book.ID, 856, 8, false);
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<BookModel>> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<IEnumerable<InjuryModel>> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

@@ -25,7 +25,7 @@ using Lab8.Models;
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e16c466c265b86d5ff00e2f3493eb2e6abf9dab9", @"/Views/Book/View.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"54392077b573ca062b662c621eb32a31c11c50ef", @"/Views/_ViewImports.cshtml")]
-    public class Views_Book_View : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<BookModel>
+    public class Views_Book_View : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<InjuryModel>
     {
         #line hidden
         #pragma warning disable 0169
@@ -50,7 +50,7 @@ using Lab8.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(18, 325, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5454b90203e4a068a1c85edf09f1acf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f61bef2c18854854bad2a3ec050049c6", async() => {
                 BeginContext(24, 18, true);
                 WriteLiteral("\n    <h1>\n        ");
                 EndContext();
@@ -127,7 +127,7 @@ using Lab8.Models;
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<BookModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<InjuryModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

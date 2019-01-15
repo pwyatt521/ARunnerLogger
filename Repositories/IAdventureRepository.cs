@@ -8,10 +8,10 @@ namespace Adventure.Repositories
 {
     public interface IAdventureRepository
     {
-        AdventureModel Get(int id);
-        Task<List<AdventureModel>> GetList();
-        Task<List<AdventureModel>> SearchList(string searchText);
-        void Save(AdventureModel Adventure);
+        HealthModel Get(int id);
+        Task<List<HealthModel>> GetList();
+        Task<List<HealthModel>> SearchList(string searchText);
+        void Save(HealthModel Adventure);
         void Delete(int id);
     }
 }

@@ -1,13 +1,13 @@
-@model Lab8.Models.BookModel
+@model Lab8.Models.InjuryModel
 @{
     ViewData["Title"] = "PostBlog";
 }
 <body>
     <h1>
-        Post Blog
+        Post Injury Log
     </h1>
     
-@using (Html.BeginForm("PostBlog", "Book", FormMethod.Post))
+@using (Html.BeginForm("PostBlog", "Injury", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.LabelFor(m=>m.PostedBy, new { @class = "control-label" })
@@ -38,6 +38,6 @@
     @Html.EditorFor(m=>m.BLength, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.BLength)
 </div>
-   <button type="submit" class="btn btn-primary">Post Blog</button>
+   <button type="submit" class="btn btn-primary">Post Log</button>
 }
 </body>

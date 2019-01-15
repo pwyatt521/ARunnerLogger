@@ -28,9 +28,9 @@ namespace Adventure.Repositories
             conString = sbuilder.ConnectionString;
         }
         
-        public virtual AdventureModel Get(int id)
+        public virtual HealthModel Get(int id)
         {
-            AdventureModel Adventure = null;
+            HealthModel Adventure = null;
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Adventure_Get", connection))
@@ -42,7 +42,7 @@ namespace Adventure.Repositories
                     {
                         if (reader.Read())
                         {
-                            Adventure = new AdventureModel();
+                            Adventure = new HealthModel();
                             Adventure.ID = (int) reader["ID"];
                             Adventure.AName = reader["AName"].ToString();
                             Adventure.ADescription =  reader["ADescription"].ToString();
@@ -57,14 +57,14 @@ namespace Adventure.Repositories
         }
 
 
-        public virtual async Task<List<AdventureModel>> SearchList(string searchText)
+        public virtual async Task<List<HealthModel>> SearchList(string searchText)
         {
-            List<AdventureModel> AdventureList = (await GetList()).Where(a => a.AName.ToLower().Contains(searchText.ToLower())).ToList();
+            List<HealthModel> AdventureList = (await GetList()).Where(a => a.AName.ToLower().Contains(searchText.ToLower())).ToList();
             return AdventureList;
         }
-        public virtual async Task<List<AdventureModel>> GetList()
+        public virtual async Task<List<HealthModel>> GetList()
         {
-            List<AdventureModel> AdventureList = new List<AdventureModel>();
+            List<HealthModel> AdventureList = new List<HealthModel>();
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Adventure_GetList", connection))
@@ -75,7 +75,7 @@ namespace Adventure.Repositories
                     {
                         while (reader.Read())
                         {
-                            AdventureModel Adventure = new AdventureModel();
+                            HealthModel Adventure = new HealthModel();
                             Adventure.ID = (int) reader["ID"];
                             Adventure.AName = reader["AName"].ToString();
                             Adventure.ADescription =  reader["ADescription"].ToString();
@@ -92,7 +92,7 @@ namespace Adventure.Repositories
         }
 
 
-        public virtual void Save(AdventureModel Adventure)
+        public virtual void Save(HealthModel Adventure)
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {

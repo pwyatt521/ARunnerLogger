@@ -13,13 +13,13 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Lab8.Controllers
 {
-    [Authorize (Roles="Booker")]
-    public class BookController : Controller
+    [Authorize (Roles="Runner,Admin,Coach,Trainer")]
+    public class InjuryController : Controller
     {
         private IBookRepository _BookRepo;
         private Lab8Settings _Settings;
         private IMemoryCache _Cache;
-         public BookController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IBookRepository BookRepo)
+         public InjuryController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IBookRepository BookRepo)
         {
             _Settings = settings.Value;
             _Cache = cache;
@@ -27,7 +27,7 @@ namespace Lab8.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<BookModel> BookList = new List<BookModel>();
+            List<InjuryModel> BookList = new List<InjuryModel>();
             BookList.AddRange(await  _BookRepo.GetList());
             return View(BookList);
         }
@@ -35,7 +35,7 @@ namespace Lab8.Controllers
         [HttpGet]
         public IActionResult PostBlog()
         {
-            BookModel model = new BookModel();
+            InjuryModel model = new InjuryModel();
             model.BTitle = _Settings.DefaultName;
             model.BRating = _Settings.DefaultRating;
             model.PostedBy = _Settings.DefaultUser;
@@ -44,7 +44,7 @@ namespace Lab8.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PostBlog(BookModel model)
+        public IActionResult PostBlog(InjuryModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace Lab8.Controllers
             return Create(model);
         }
 
-        protected IActionResult Create(BookModel model)
+        protected IActionResult Create(InjuryModel model)
         {
             _BookRepo.Save(model);
             return RedirectToAction("Index");
@@ -64,12 +64,12 @@ namespace Lab8.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            BookModel Book = _BookRepo.Get(id);
+            InjuryModel Book = _BookRepo.Get(id);
             return View(Book);
         }
         public IActionResult View(int id)
         {
-            BookModel a = _BookRepo.Get(id);
+            InjuryModel a = _BookRepo.Get(id);
             return View(a);
         }
 

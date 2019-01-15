@@ -19,10 +19,10 @@ namespace Book.Repositories
         {
             _Cache = cache;
         }
-        public override async Task<List<BookModel>> GetList()
+        public override async Task<List<InjuryModel>> GetList()
         {
 
-            var BookList = (List<BookModel>) _Cache.Get(_CacheListKey);
+            var BookList = (List<InjuryModel>) _Cache.Get(_CacheListKey);
             if (BookList != null)
             {
                 return BookList;
@@ -35,7 +35,7 @@ namespace Book.Repositories
             }
 
         }
-        public override void Save(BookModel Book)
+        public override void Save(InjuryModel Book)
         {
             base.Save(Book);
             _Cache.Remove(_CacheListKey);

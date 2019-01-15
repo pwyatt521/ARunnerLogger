@@ -68,7 +68,7 @@ namespace Lab8.Controllers
             return RedirectToAction("Index");
         }
 
-              [HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteUser(string Email)
         {

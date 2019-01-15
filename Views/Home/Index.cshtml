@@ -1,14 +1,16 @@
-﻿@using Microsoft.AspNetCore.Identity;
-
+﻿@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject RoleManager<IdentityRole> RoleMan
+@inject UserManager<Lab8Model> UserMan 
 @{
     ViewData["Title"] = "Home";
 }
 <body>
     <h1>
-        Welcome
+        Home
     </h1>
     <h2>
-        <a asp-area="" asp-controller="Adventure" asp-action="Index">Health Logs</a>
+        <a asp-area="" asp-controller="Health" asp-action="Index">Health Logs</a>
     </h2>
     <p>
         Health Logs document the runner's general health.

@@ -8,10 +8,10 @@ namespace Book.Repositories
 {
     public interface IBookRepository
     {
-        BookModel Get(int id);
-        Task<List<BookModel>> GetList();
-        Task<List<BookModel>> SearchList(string searchText);
-        void Save(BookModel Book);
+        InjuryModel Get(int id);
+        Task<List<InjuryModel>> GetList();
+        Task<List<InjuryModel>> SearchList(string searchText);
+        void Save(InjuryModel Book);
         void Delete(int id);
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace Lab8.Models
 {
-    public class BookModel{
+    public class InjuryModel{
 
 
         public int ID {get; set;}

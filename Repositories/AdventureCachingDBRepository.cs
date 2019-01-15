@@ -19,10 +19,10 @@ namespace Adventure.Repositories
         {
             _Cache = cache;
         }
-        public override async Task<List<AdventureModel>> GetList()
+        public override async Task<List<HealthModel>> GetList()
         {
 
-            var AdventureList = (List<AdventureModel>) _Cache.Get(_CacheListKey);
+            var AdventureList = (List<HealthModel>) _Cache.Get(_CacheListKey);
             if (AdventureList != null)
             {
                 return AdventureList;
@@ -35,7 +35,7 @@ namespace Adventure.Repositories
             }
 
         }
-        public override void Save(AdventureModel Adventure)
+        public override void Save(HealthModel Adventure)
         {
             base.Save(Adventure);
             _Cache.Remove(_CacheListKey);

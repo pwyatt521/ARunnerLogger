@@ -1,17 +1,20 @@
+@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject UserManager<Lab8Model> UserMan 
 @model Lab8.Models.WorkOutModel
+
 @{
-    ViewData["Title"] = "PostBlog";
+    ViewData["Title"] = "PostWorkout";
 }
 <body>
     <h1>
-        Post Blog
+        Post Workout
     </h1>
 @using (Html.BeginForm("PostBlog", "WorkOut", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.LabelFor(m=>m.PostedBy, new { @class = "control-label" })
-    @Html.TextBoxFor(m=>m.PostedBy, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.PostedBy)
+    <input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
+
     <div class="form-group">    
         @Html.LabelFor(m=>m.WName, new { @class = "control-label" })
         @Html.TextBoxFor(m=>m.WName, new { @class = "form-control" })

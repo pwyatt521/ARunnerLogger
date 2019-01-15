@@ -1,8 +1,9 @@
-@model  AdventureModel
+@model  HealthModel
 <body>
     <h1>
         @Html.DisplayFor(m => m.AName)
     </h1>
+    <p>Posted by: @Html.DisplayFor(m => m.PostedBy)</p>
     <h2>
         @Html.DisplayFor(m => m.ARating)
         / 7 stars

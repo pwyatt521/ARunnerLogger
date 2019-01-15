@@ -7,14 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Lab8.Models;
 using Lab8.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Lab8.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private RoleManager<IdentityRole> _RoleManager;
+        private UserManager<Lab8Model> _UserManager;
+        public HomeController(RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager)
         {
+            _RoleManager = roleManager;
+            _UserManager = userManager;
+        }
+        public IActionResult Index()
+        {   
             return View();
         }
 

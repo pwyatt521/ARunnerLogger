@@ -28,10 +28,10 @@ namespace Book.Repositories
             conString = sbuilder.ConnectionString;
         }
         
-        public virtual BookModel Get(int id)
+        public virtual InjuryModel Get(int id)
         {
             
-            BookModel Book = null;
+            InjuryModel Book = null;
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Book_Get", connection))
@@ -43,7 +43,7 @@ namespace Book.Repositories
                     {
                         if (reader.Read())
                         {
-                            Book = new BookModel();
+                            Book = new InjuryModel();
                             Book.ID = (int) reader["ID"];
                             Book.BTitle = reader["BTitle"].ToString();
                             Book.BAuthor = reader["BAuthor"].ToString();
@@ -60,14 +60,14 @@ namespace Book.Repositories
         }
 
 
-        public virtual async Task<List<BookModel>> SearchList(string searchText)
+        public virtual async Task<List<InjuryModel>> SearchList(string searchText)
         {
-            List<BookModel> BookList = (await GetList()).Where(a => a.BTitle.ToLower().Contains(searchText.ToLower())).ToList();
+            List<InjuryModel> BookList = (await GetList()).Where(a => a.BTitle.ToLower().Contains(searchText.ToLower())).ToList();
             return BookList;
         }
-        public virtual async Task<List<BookModel>> GetList()
+        public virtual async Task<List<InjuryModel>> GetList()
         {
-            List<BookModel> BookList = new List<BookModel>();
+            List<InjuryModel> BookList = new List<InjuryModel>();
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Book_GetList", connection))
@@ -78,7 +78,7 @@ namespace Book.Repositories
                     {
                         while (reader.Read())
                         {
-                            BookModel Book = new BookModel();
+                            InjuryModel Book = new InjuryModel();
                             Book.ID = (int) reader["ID"];
                             Book.BTitle = reader["BTitle"].ToString();
                             Book.BAuthor = reader["BAuthor"].ToString();
@@ -96,7 +96,7 @@ namespace Book.Repositories
         }
 
 
-        public virtual void Save(BookModel Book)
+        public virtual void Save(InjuryModel Book)
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {

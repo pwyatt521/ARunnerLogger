@@ -25,7 +25,7 @@ using Lab8.Models;
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"97349e9613de53b0b7c2ba073582753bfa4b52ac", @"/Views/Book/PostBlog.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"54392077b573ca062b662c621eb32a31c11c50ef", @"/Views/_ViewImports.cshtml")]
-    public class Views_Book_PostBlog : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Lab8.Models.BookModel>
+    public class Views_Book_PostBlog : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Lab8.Models.InjuryModel>
     {
         #line hidden
         #pragma warning disable 0169
@@ -56,7 +56,7 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(70, 1492, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc56e3b3465b4b1296110c9abeaaac90", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "475315b80975498ca9c42bd259c058dd", async() => {
                 BeginContext(76, 43, true);
                 WriteLiteral("\n    <h1>\n        Post Blog\n    </h1>\n    \n");
                 EndContext();
@@ -276,7 +276,7 @@ Write(Html.ValidationMessageFor(m => m.BLength));
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Lab8.Models.BookModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Lab8.Models.InjuryModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

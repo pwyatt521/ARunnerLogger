@@ -19,7 +19,7 @@ namespace Lab8.Models
         [Required (ErrorMessage = "Workout Description Required")]
         public string WDescription{get; set;}
 
-        [DisplayName("Workout Rating")]
+        [DisplayName("Workout Difficulty")]
         [Range(1,10)]
         [Required (ErrorMessage = "Difficulty Rating 1-10 Required")]
         public int WRating{get; set;}

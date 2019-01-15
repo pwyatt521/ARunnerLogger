@@ -71,9 +71,6 @@
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ViewImports.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ViewStart.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Admin/Index.g.cshtml.cs
-/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Adventure/Index.g.cshtml.cs
-/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Adventure/PostBlog.g.cshtml.cs
-/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Adventure/View.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Book/Index.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Book/PostBlog.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Book/View.g.cshtml.cs
@@ -94,3 +91,6 @@
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Lab8.dll
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Lab8.pdb
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Lab8.csproj.CopyComplete
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Health/Index.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Health/PostBlog.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Health/View.g.cshtml.cs

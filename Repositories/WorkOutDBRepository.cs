@@ -90,10 +90,9 @@ namespace WorkOut.Repositories
                 }
 
             }
+            WorkOutList.Sort(new WorkoutComparer());
             return WorkOutList;
         }
-
-
         public virtual void Save(WorkOutModel WorkOut)
         {
             using (SqlConnection connection = new SqlConnection(conString))
@@ -131,5 +130,18 @@ namespace WorkOut.Repositories
                 }
             }
         }
+    }
+
+    public class WorkoutComparer:Comparer<WorkOutModel>
+    {
+        public override int Compare(WorkOutModel x, WorkOutModel y)
+        {
+            if (x.WDate > y.WDate)
+                return -1;
+            else if (x.WDate <y.WDate)
+                return 1;
+            else 
+                return 0;
+        }   
     }
 }

@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<WorkOutModel>
 @{
-    ViewData["Title"] = "WorkOut";
+    ViewData["Title"] = "TrainingLogs";
 }
 <body>
     <h1>
-        WorkOuts
+        Training Logs
     </h1>
     <h2>
     <div>
-        <a asp-area="" asp-controller="WorkOut" asp-action="PostBlog">Post Blog</a>
+        <a asp-area="" asp-controller="WorkOut" asp-action="PostBlog">Post Workout</a>
     </div>
     </h2>
 
@@ -17,9 +17,19 @@
     {
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-4">
                     <p>
                         <a href="@Url.Action("View", "WorkOut", new { @id = WorkOut.ID })">@WorkOut.WName</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        @WorkOut.WDate
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <p>
+                        @WorkOut.WRating
                     </p>
                 </div>
                 <div class="col-md-2">
