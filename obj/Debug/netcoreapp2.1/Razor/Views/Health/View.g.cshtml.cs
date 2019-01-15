@@ -50,7 +50,7 @@ using Lab8.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(20, 267, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "157f806150b94275b83f68d3d4abda74", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63a87ae868884afc98a986a8abd400d5", async() => {
                 BeginContext(26, 18, true);
                 WriteLiteral("\n    <h1>\n        ");
                 EndContext();

@@ -72,12 +72,12 @@ using Lab8.Areas.Identity.Data;
 #line default
 #line hidden
             BeginContext(195, 676, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7fab3aaceec547c4adc05ad1b38f75f8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c02bbc0c2464cb79ff9ed0022f8121f", async() => {
                 BeginContext(201, 55, true);
                 WriteLiteral("\r\n    <h1>\r\n        Home\r\n    </h1>\r\n    <h2>\r\n        ");
                 EndContext();
                 BeginContext(256, 73, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ed6616684f241c4ae3933873d8b8789", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "503be9cfd3744bae89f98beec3113adf", async() => {
                     BeginContext(314, 11, true);
                     WriteLiteral("Health Logs");
                     EndContext();
@@ -103,7 +103,7 @@ using Lab8.Areas.Identity.Data;
                 WriteLiteral("\r\n    </h2>\r\n    <p>\r\n        Health Logs document the runner\'s general health.\r\n    </p>\r\n    <h2>\r\n        ");
                 EndContext();
                 BeginContext(438, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98b0ef4264784f0597838bdb440578df", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bba864d5ecf144edb2a6ae270dbdbf2c", async() => {
                     BeginContext(494, 11, true);
                     WriteLiteral("Injury Logs");
                     EndContext();
@@ -129,7 +129,7 @@ using Lab8.Areas.Identity.Data;
                 WriteLiteral("\r\n    </h2>\r\n    <p>\r\n        Injury Logs document injuries that the runner has suffered and how they are working on overcoming them.\r\n    </p>\r\n    <h2>\r\n        ");
                 EndContext();
                 BeginContext(672, 76, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a413be2103840d9a644f34e97ca39ff", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af845bae74f94c1d9072a703c0787842", async() => {
                     BeginContext(731, 13, true);
                     WriteLiteral("Training Logs");
                     EndContext();
