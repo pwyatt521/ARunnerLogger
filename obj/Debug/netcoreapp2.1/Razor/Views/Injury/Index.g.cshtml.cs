@@ -65,12 +65,12 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(73, 1031, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b1608953ab04ade8bc57cf4cecd8495", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "319adc7248b242278fb68ff248d9c611", async() => {
                 BeginContext(79, 72, true);
                 WriteLiteral("\r\n    <h1>\r\n        Injury\r\n    </h1>\r\n    <h2>\r\n    <div>\r\n            ");
                 EndContext();
                 BeginContext(151, 80, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "692abe53d41a4cec942ef2af3185c2af", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "046f2c8e752e47fb9b88b3eaf1bf804e", async() => {
                     BeginContext(212, 15, true);
                     WriteLiteral("Post Injury Log");
                     EndContext();
@@ -125,7 +125,7 @@ WriteAttributeValue("", 490, Url.Action("View", "Injury", new { @id = Book.ID })
                 WriteLiteral("</a>\r\n                    </p>\r\n                </div>\r\n                <div class=\"col-md-2\">\r\n                    ");
                 EndContext();
                 BeginContext(672, 348, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "045426eda0d64ae1bd8d50a25e408ae8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ffa36cae3774fb29df839ad881bd65f", async() => {
                     BeginContext(757, 26, true);
                     WriteLiteral("\r\n                        ");
                     EndContext();

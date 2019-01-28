@@ -79,7 +79,7 @@ using Lab8.Areas.Identity.Data;
             WriteLiteral("<h2>\n    Create Role\n</h2>\n");
             EndContext();
             BeginContext(216, 304, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "61e682613f9f481b8592ddf655e3185a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9f8cfb539de446a9a6fe4b684ed36a37", async() => {
                 BeginContext(269, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();
@@ -115,7 +115,7 @@ Write(Html.AntiForgeryToken());
             WriteLiteral("\n<h2>\n    Delete Role\n</h2>\n    ");
             EndContext();
             BeginContext(552, 369, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d604980c009464088eba9983088cdb6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3faf66b9858843cf96597d8c33bc41f6", async() => {
                 BeginContext(605, 9, true);
                 WriteLiteral("\n        ");
                 EndContext();
@@ -161,7 +161,7 @@ Write(Html.AntiForgeryToken());
             WriteLiteral("\n    <h2>\n    Delete User\n    </h2>\n       ");
             EndContext();
             BeginContext(964, 369, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb208348ed504c5aaa55a5041ea1cdc1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5116c2f66114fc59a7e61e59dbdccc8", async() => {
                 BeginContext(1017, 9, true);
                 WriteLiteral("\n        ");
                 EndContext();
@@ -217,7 +217,7 @@ Write(Html.AntiForgeryToken());
             WriteLiteral("\n    <h2>\n    Add User to Role\n    </h2>\n");
             EndContext();
             BeginContext(1374, 615, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8cce94c95c5d43b9a6e98745538ef05c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13acb42dbaca4b3dab717f282a0e80f9", async() => {
                 BeginContext(1444, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();

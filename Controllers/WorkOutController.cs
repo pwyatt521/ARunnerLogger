@@ -13,7 +13,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Lab8.Controllers
 {
-    [Authorize (Roles="WorkOuter")]
+    [Authorize (Roles="Admin,Runner,Coach")]
     public class WorkOutController : Controller
     {
         private IWorkOutRepository _WorkOutRepo;
