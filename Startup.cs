@@ -12,9 +12,10 @@ using Microsoft.EntityFrameworkCore;
 using Lab8.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Adventure.Repositories;
-using Book.Repositories;
+using Health.Repositories;
+using Injury.Repositories;
 using WorkOut.Repositories;
+using Rehab.Repositories;
 using System.Data.SqlClient;
 
 namespace Lab8
@@ -51,9 +52,10 @@ namespace Lab8
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.Configure<Lab8Settings>(Configuration);
-            services.AddTransient<IAdventureRepository, AdventureCachingDBRepository>();
+            services.AddTransient<IHealthRepository, HealthCachingDBRepository>();
+            services.AddTransient<IRehabRepository, RehabCachingDBRepository>();
             services.AddTransient<IWorkOutRepository, WorkOutCachingDBRepository>();
-            services.AddTransient<IBookRepository, BookCachingDBRepository>();
+            services.AddTransient<IInjuryRepository, InjuryCachingDBRepository>();
             //services.AddTransient<ICacheRepository, CacheRepository>();
         }
 

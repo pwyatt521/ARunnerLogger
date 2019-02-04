@@ -8,36 +8,36 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace Adventure.Repositories
+namespace Health.Repositories
 {
-    public class AdventureCachingDBRepository : AdventureDBRepository
+    public class HealthCachingDBRepository : HealthDBRepository
     {
         private readonly string _CachePrefix = "AdventureCacheRepo";
         private string _CacheListKey { get { return $"{_CachePrefix}_List"; } }
         private IMemoryCache _Cache;
-        public AdventureCachingDBRepository(IConfiguration Config, IMemoryCache cache) : base(Config)
+        public HealthCachingDBRepository(IConfiguration Config, IMemoryCache cache) : base(Config)
         {
             _Cache = cache;
         }
         public override async Task<List<HealthModel>> GetList()
         {
 
-            var AdventureList = (List<HealthModel>) _Cache.Get(_CacheListKey);
-            if (AdventureList != null)
+            var HealthList = (List<HealthModel>) _Cache.Get(_CacheListKey);
+            if (HealthList != null)
             {
-                return AdventureList;
+                return HealthList;
             }
             else
             {
-                AdventureList = await base.GetList();
-                _Cache.Set(_CacheListKey, AdventureList);
-                return AdventureList;
+                HealthList = await base.GetList();
+                _Cache.Set(_CacheListKey, HealthList);
+                return HealthList;
             }
 
         }
-        public override void Save(HealthModel Adventure)
+        public override void Save(HealthModel Health)
         {
-            base.Save(Adventure);
+            base.Save(Health);
             _Cache.Remove(_CacheListKey);
         }
         public override void Delete(int id)

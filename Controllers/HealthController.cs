@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Lab8.Models;
 using Lab8.Areas.Identity.Data;
 using Microsoft.Extensions.Options;
-using Adventure.Repositories;
+using Health.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,24 +18,24 @@ namespace Lab8.Controllers
     [Authorize (Roles="Admin,Coach,Runner,Trainer")]
     public class HealthController : Controller
     {
-        private IAdventureRepository _AdventureRepo;
+        private IHealthRepository _HealthRepo;
         private Lab8Settings _Settings;
         private IMemoryCache _Cache;
         RoleManager<IdentityRole> RoleManager;
         UserManager<Lab8Model> UserManager;
-         public HealthController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IAdventureRepository adventureRepo,
+         public HealthController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IHealthRepository HealthRepo,
                     RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager)
         {
             _Settings = settings.Value;
             _Cache = cache;
-            _AdventureRepo = adventureRepo; 
+            _HealthRepo = HealthRepo; 
             RoleManager = roleManager;
             UserManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
             List<HealthModel> logList = new List<HealthModel>();
-            logList.AddRange(await  _AdventureRepo.GetList());
+            logList.AddRange(await  _HealthRepo.GetList());
             if (User.IsInRole("Runner"))
             {
                 //TODO: change to SQL Command
@@ -77,19 +77,19 @@ namespace Lab8.Controllers
 
         protected IActionResult Create(HealthModel model)
         {
-            _AdventureRepo.Save(model);
+            _HealthRepo.Save(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            HealthModel adventure = _AdventureRepo.Get(id);
-            return View(adventure);
+            HealthModel Health = _HealthRepo.Get(id);
+            return View(Health);
         }
         public IActionResult View(int id)
         {
-            HealthModel a = _AdventureRepo.Get(id);
+            HealthModel a = _HealthRepo.Get(id);
             return View(a);
         }
 
@@ -97,7 +97,7 @@ namespace Lab8.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _AdventureRepo.Delete(id);
+            _HealthRepo.Delete(id);
             return RedirectToAction("Index");
         }
 

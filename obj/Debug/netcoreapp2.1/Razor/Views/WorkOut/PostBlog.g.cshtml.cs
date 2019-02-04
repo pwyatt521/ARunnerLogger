@@ -69,7 +69,7 @@ using Lab8.Areas.Identity.Data;
 #line default
 #line hidden
             BeginContext(186, 1251, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37940d64e3b74be2bcd926000c98cacd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b9e7cf5bcb94e98967ba2be23493446", async() => {
                 BeginContext(192, 41, true);
                 WriteLiteral("\n    <h1>\n        Post Workout\n    </h1>\n");
                 EndContext();

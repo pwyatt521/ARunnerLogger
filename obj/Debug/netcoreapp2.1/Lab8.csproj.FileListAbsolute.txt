@@ -94,3 +94,6 @@
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/Index.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/PostBlog.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/View.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Trainer/Index.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Trainer/PostRehab.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Trainer/View.g.cshtml.cs

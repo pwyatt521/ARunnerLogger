@@ -22,7 +22,7 @@ namespace Lab8.Models
         public string BAuthor{get; set;}
 
         [DisplayName("Injury Summary (Where it hurts and what hurts to do)")]
-        [Required (ErrorMessage = "Book Summary Required")]
+        [Required (ErrorMessage = "Injury Summary Required")]
         public string BSummary{get; set;}
 
         [DisplayName("Pain Rating")]

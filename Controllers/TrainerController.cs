@@ -10,41 +10,40 @@ using Lab8.Areas.Identity.Data;
 using Microsoft.Extensions.Options;
 using Injury.Repositories;
 using Microsoft.Extensions.Caching.Memory;
+using Rehab.Repositories;
 
 namespace Lab8.Controllers
 {
-    [Authorize (Roles="Runner,Admin,Coach,Trainer")]
-    public class InjuryController : Controller
+    [Authorize (Roles="Admin,Trainer")]
+    public class TrainerController : Controller
     {
-        private IInjuryRepository _InjuryRepo;
+        private IRehabRepository _RehabRepo;
         private Lab8Settings _Settings;
         private IMemoryCache _Cache;
-         public InjuryController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IInjuryRepository InjuryRepo)
+         public TrainerController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IRehabRepository RehabRepo)
         {
             _Settings = settings.Value;
             _Cache = cache;
-            _InjuryRepo = InjuryRepo; 
+            _RehabRepo = RehabRepo; 
         }
         public async Task<IActionResult> Index()
         {
-            List<InjuryModel> InjuryList = new List<InjuryModel>();
-            InjuryList.AddRange(await  _InjuryRepo.GetList());
-            return View(InjuryList);
+            List<RehabModel> RehabList = new List<RehabModel>();
+            RehabList.AddRange(await  _RehabRepo.GetList());
+            return View(RehabList);
         }
-        [Authorize (Roles="Runner")]
+
         [HttpGet]
-        public IActionResult PostBlog()
+        public IActionResult PostRehab()
         {
-            InjuryModel model = new InjuryModel();
-            model.BTitle = _Settings.DefaultName;
-            model.BRating = _Settings.DefaultRating;
-            model.PostedBy = _Settings.DefaultUser;
+            RehabModel model = new RehabModel();
+            model.timesUsed = 0;
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PostBlog(InjuryModel model)
+        public IActionResult PostRehab(RehabModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -53,21 +52,21 @@ namespace Lab8.Controllers
             return Create(model);
         }
 
-        protected IActionResult Create(InjuryModel model)
+        protected IActionResult Create(RehabModel model)
         {
-            _InjuryRepo.Save(model);
+            _RehabRepo.Save(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            InjuryModel Injury = _InjuryRepo.Get(id);
-            return View(Injury);
+            RehabModel Rehab = _RehabRepo.Get(id);
+            return View(Rehab);
         }
         public IActionResult View(int id)
         {
-            InjuryModel a = _InjuryRepo.Get(id);
+            RehabModel a = _RehabRepo.Get(id);
             return View(a);
         }
 
@@ -75,7 +74,7 @@ namespace Lab8.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _InjuryRepo.Delete(id);
+            _RehabRepo.Delete(id);
             return RedirectToAction("Index");
         }
 

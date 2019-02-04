@@ -8,36 +8,36 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace Book.Repositories
+namespace Injury.Repositories
 {
-    public class BookCachingDBRepository : BookDBRepository
+    public class InjuryCachingDBRepository : InjuryDBRepository
     {
         private readonly string _CachePrefix = "BookCacheRepo";
         private string _CacheListKey { get { return $"{_CachePrefix}_List"; } }
         private IMemoryCache _Cache;
-        public BookCachingDBRepository(IConfiguration BookConfig, IMemoryCache cache) : base(BookConfig)
+        public InjuryCachingDBRepository(IConfiguration InjuryConfig, IMemoryCache cache) : base(InjuryConfig)
         {
             _Cache = cache;
         }
         public override async Task<List<InjuryModel>> GetList()
         {
 
-            var BookList = (List<InjuryModel>) _Cache.Get(_CacheListKey);
-            if (BookList != null)
+            var InjuryList = (List<InjuryModel>) _Cache.Get(_CacheListKey);
+            if (InjuryList != null)
             {
-                return BookList;
+                return InjuryList;
             }
             else
             {
-                BookList = await base.GetList();
-                _Cache.Set(_CacheListKey, BookList);
-                return BookList;
+                InjuryList = await base.GetList();
+                _Cache.Set(_CacheListKey, InjuryList);
+                return InjuryList;
             }
 
         }
-        public override void Save(InjuryModel Book)
+        public override void Save(InjuryModel Injury)
         {
-            base.Save(Book);
+            base.Save(Injury);
             _Cache.Remove(_CacheListKey);
         }
         public override void Delete(int id)

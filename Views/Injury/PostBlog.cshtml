@@ -10,9 +10,11 @@
 @using (Html.BeginForm("PostBlog", "Injury", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+<div class="form-group">  
     @Html.LabelFor(m=>m.PostedBy, new { @class = "control-label" })
     @Html.TextBoxFor(m=>m.PostedBy, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.PostedBy)
+</div>
 <div class="form-group">    
     @Html.LabelFor(m=>m.BTitle, new { @class = "control-label" })
     @Html.TextBoxFor(m=>m.BTitle, new { @class = "form-control" })

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Adventure.Repositories
+namespace Health.Repositories
 {
-    public interface IAdventureRepository
+    public interface IHealthRepository
     {
         HealthModel Get(int id);
         Task<List<HealthModel>> GetList();
         Task<List<HealthModel>> SearchList(string searchText);
-        void Save(HealthModel Adventure);
+        void Save(HealthModel Health);
         void Delete(int id);
     }
 }

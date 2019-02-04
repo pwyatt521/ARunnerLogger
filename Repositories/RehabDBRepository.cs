@@ -12,13 +12,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Lab8;
 
-namespace Adventure.Repositories
+namespace Rehab.Repositories
 {
-    public class AdventureDBRepository : IAdventureRepository
+    public class RehabDBRepository : IRehabRepository
     {
         private IConfiguration Configuration;
         private string conString;
-        public AdventureDBRepository( IConfiguration config)
+        public RehabDBRepository( IConfiguration config)
         {
             Configuration = config;
             
@@ -28,12 +28,12 @@ namespace Adventure.Repositories
             conString = sbuilder.ConnectionString;
         }
         
-        public virtual HealthModel Get(int id)
+        public virtual RehabModel Get(int id)
         {
-            HealthModel Adventure = null;
+            RehabModel rehab = null;
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_Get", connection))
+                using (SqlCommand command = new SqlCommand("Rehab_Get", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ID", id);
@@ -42,32 +42,31 @@ namespace Adventure.Repositories
                     {
                         if (reader.Read())
                         {
-                            Adventure = new HealthModel();
-                            Adventure.ID = (int) reader["ID"];
-                            Adventure.AName = reader["AName"].ToString();
-                            Adventure.ADescription =  reader["ADescription"].ToString();
-                            Adventure.ARating = (int) reader["ARating"];
-                            Adventure.PostedBy =  reader["PostedBy"].ToString();
+                            rehab = new RehabModel();
+                            rehab.ID = (int) reader["ID"];
+                            rehab.Name = reader["Name"].ToString();
+                            rehab.Description =  reader["Description"].ToString();
+                            rehab.timesUsed = (int) reader["TimesUsed"];
                         }
                     }
                 }
 
             }
-            return Adventure;
+            return rehab;
         }
 
-
-        public virtual async Task<List<HealthModel>> SearchList(string searchText)
+// Make precedure in database
+        /* public virtual async Task<List<RehabModel>> SearchList(string searchText)
         {
             List<HealthModel> AdventureList = (await GetList()).Where(a => a.AName.ToLower().Contains(searchText.ToLower())).ToList();
             return AdventureList;
-        }
-        public virtual async Task<List<HealthModel>> GetList()
+        }*/
+        public virtual async Task<List<RehabModel>> GetList()
         {
-            List<HealthModel> AdventureList = new List<HealthModel>();
+            List<RehabModel> rehabList = new List<RehabModel>();
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_GetList", connection))
+                using (SqlCommand command = new SqlCommand("Rehab_GetList", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     await connection.OpenAsync();
@@ -75,40 +74,36 @@ namespace Adventure.Repositories
                     {
                         while (reader.Read())
                         {
-                            HealthModel Adventure = new HealthModel();
-                            Adventure.ID = (int) reader["ID"];
-                            Adventure.AName = reader["AName"].ToString();
-                            Adventure.ADescription =  reader["ADescription"].ToString();
-                            Adventure.ARating = (int) reader["ARating"];
-                            Adventure.PostedBy =  reader["PostedBy"].ToString();
-                        
-                            AdventureList.Add(Adventure);
+                            RehabModel rehab = new RehabModel();
+                            rehab.ID = (int) reader["ID"];
+                            rehab.Name = reader["Name"].ToString();
+                            rehab.Description =  reader["Description"].ToString();
+                            rehab.timesUsed = (int) reader["TimesUsed"];
+                            rehabList.Add(rehab);
                         }
                     }
                 }
 
             }
-            return AdventureList;
+            return rehabList;
         }
 
 
-        public virtual void Save(HealthModel Adventure)
+        public virtual void Save(RehabModel rehab)
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_InsertUpdate", connection))
+                using (SqlCommand command = new SqlCommand("Rehab_Insert", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
-                    command.Parameters.AddWithValue("@ID", Adventure.ID);
-                    command.Parameters.AddWithValue("@AName", Adventure.AName);
-                    command.Parameters.AddWithValue("@ADescription", Adventure.ADescription);
-                    command.Parameters.AddWithValue("@ARating", Adventure.ARating);
-                    command.Parameters.AddWithValue("@PostedBy", Adventure.PostedBy);
+                    command.Parameters.AddWithValue("@Name", rehab.Name);
+                    command.Parameters.AddWithValue("@Description", rehab.Description);
+                    command.Parameters.AddWithValue("@TimesUsed", rehab.timesUsed);
                     int rows = command.ExecuteNonQuery();
                     if (rows <= 0)
                     {
-                        Console.Error.WriteLine("Didn't Work");
+                        Console.Error.WriteLine("Error posting Rehab Option database");
                     }
                 }
             }
@@ -117,7 +112,7 @@ namespace Adventure.Repositories
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_Delete", connection))
+                using (SqlCommand command = new SqlCommand("Rehab_Delete", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();

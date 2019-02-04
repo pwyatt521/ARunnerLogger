@@ -12,13 +12,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Lab8;
 
-namespace Book.Repositories
+namespace Injury.Repositories
 {
-    public class BookDBRepository : IBookRepository
+    public class InjuryDBRepository : IInjuryRepository
     {
         private IConfiguration configuration;
         private string conString;
-        public BookDBRepository(IConfiguration config)
+        public InjuryDBRepository(IConfiguration config)
         {
             configuration = config;
 
@@ -31,7 +31,7 @@ namespace Book.Repositories
         public virtual InjuryModel Get(int id)
         {
             
-            InjuryModel Book = null;
+            InjuryModel Injury = null;
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Book_Get", connection))
@@ -43,31 +43,31 @@ namespace Book.Repositories
                     {
                         if (reader.Read())
                         {
-                            Book = new InjuryModel();
-                            Book.ID = (int) reader["ID"];
-                            Book.BTitle = reader["BTitle"].ToString();
-                            Book.BAuthor = reader["BAuthor"].ToString();
-                            Book.BSummary =  reader["BSummary"].ToString();
-                            Book.BRating = (int) reader["BRating"];
-                            Book.BLength = (int) reader["BLength"];
-                            Book.PostedBy =  reader["PostedBy"].ToString();
+                            Injury = new InjuryModel();
+                            Injury.ID = (int) reader["ID"];
+                            Injury.BTitle = reader["BTitle"].ToString();
+                            Injury.BAuthor = reader["BAuthor"].ToString();
+                            Injury.BSummary =  reader["BSummary"].ToString();
+                            Injury.BRating = (int) reader["BRating"];
+                            Injury.BLength = (int) reader["BLength"];
+                            Injury.PostedBy =  reader["PostedBy"].ToString();
                         }
                     }
                 }
 
             }
-            return Book;
+            return Injury;
         }
 
 
         public virtual async Task<List<InjuryModel>> SearchList(string searchText)
         {
-            List<InjuryModel> BookList = (await GetList()).Where(a => a.BTitle.ToLower().Contains(searchText.ToLower())).ToList();
-            return BookList;
+            List<InjuryModel> InjuryList = (await GetList()).Where(a => a.BTitle.ToLower().Contains(searchText.ToLower())).ToList();
+            return InjuryList;
         }
         public virtual async Task<List<InjuryModel>> GetList()
         {
-            List<InjuryModel> BookList = new List<InjuryModel>();
+            List<InjuryModel> InjuryList = new List<InjuryModel>();
             using (SqlConnection connection = new SqlConnection(conString))
             {
                 using (SqlCommand command = new SqlCommand("Book_GetList", connection))
@@ -78,25 +78,25 @@ namespace Book.Repositories
                     {
                         while (reader.Read())
                         {
-                            InjuryModel Book = new InjuryModel();
-                            Book.ID = (int) reader["ID"];
-                            Book.BTitle = reader["BTitle"].ToString();
-                            Book.BAuthor = reader["BAuthor"].ToString();
-                            Book.BSummary =  reader["BSummary"].ToString();
-                            Book.BRating = (int) reader["BRating"];
-                            Book.BLength = (int) reader["BLength"];
-                            Book.PostedBy =  reader["PostedBy"].ToString();
-                            BookList.Add(Book);
+                            InjuryModel Injury = new InjuryModel();
+                            Injury.ID = (int) reader["ID"];
+                            Injury.BTitle = reader["BTitle"].ToString();
+                            Injury.BAuthor = reader["BAuthor"].ToString();
+                            Injury.BSummary =  reader["BSummary"].ToString();
+                            Injury.BRating = (int) reader["BRating"];
+                            Injury.BLength = (int) reader["BLength"];
+                            Injury.PostedBy =  reader["PostedBy"].ToString();
+                            InjuryList.Add(Injury);
                         }
                     }
                 }
 
             }
-            return BookList;
+            return InjuryList;
         }
 
 
-        public virtual void Save(InjuryModel Book)
+        public virtual void Save(InjuryModel Injury)
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {
@@ -104,13 +104,13 @@ namespace Book.Repositories
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
-                    command.Parameters.AddWithValue("@ID", Book.ID);
-                    command.Parameters.AddWithValue("@BTitle", Book.BTitle);
-                    command.Parameters.AddWithValue("@BAuthor", Book.BAuthor);
-                    command.Parameters.AddWithValue("@BSummary", Book.BSummary);
-                    command.Parameters.AddWithValue("@BRating", Book.BRating);
-                    command.Parameters.AddWithValue("@BLength", Book.BLength);
-                    command.Parameters.AddWithValue("@PostedBy", Book.PostedBy);
+                    command.Parameters.AddWithValue("@ID", Injury.ID);
+                    command.Parameters.AddWithValue("@BTitle", Injury.BTitle);
+                    command.Parameters.AddWithValue("@BAuthor", Injury.BAuthor);
+                    command.Parameters.AddWithValue("@BSummary", Injury.BSummary);
+                    command.Parameters.AddWithValue("@BRating", Injury.BRating);
+                    command.Parameters.AddWithValue("@BLength", Injury.BLength);
+                    command.Parameters.AddWithValue("@PostedBy", Injury.PostedBy);
                     int rows = command.ExecuteNonQuery();
                     if (rows <= 0)
                     {

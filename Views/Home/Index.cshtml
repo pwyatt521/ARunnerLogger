@@ -6,25 +6,56 @@
     ViewData["Title"] = "Home";
 }
 <body>
-    <h1>
-        Home
-    </h1>
-    <h2>
-        <a asp-area="" asp-controller="Health" asp-action="Index">Health Logs</a>
-    </h2>
-    <p>
-        Health Logs document the runner's general health.
-    </p>
-    <h2>
-        <a asp-area="" asp-controller="Injury" asp-action="Index">Injury Logs</a>
-    </h2>
-    <p>
-        Injury Logs document injuries that the runner has suffered and how they are working on overcoming them.
-    </p>
-    <h2>
-        <a asp-area="" asp-controller="WorkOut" asp-action="Index">Training Logs</a>
-    </h2>
-    <p>
-        This is a place for runners to log their workouts and training activities.
-    </p>
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>
+                    News
+                </h1>
+            </div>
+            <div class="col-md-9">
+                <h1>
+                    Home
+                </h1>
+                @if (User.IsInRole("Coach,Runner,Trainer")) {
+                    <h2>
+                        <a asp-area="" asp-controller="Health" asp-action="Index">Health Logs</a>
+                    </h2>
+                    <p>
+                        Health Logs document the runner's general health.
+                    </p>
+                }
+                @if (User.IsInRole("Coach,Runner")) {
+                    <h2>
+                        <a asp-area="" asp-controller="Injury" asp-action="Index">Injury Logs</a>
+                    </h2>
+                    <p>
+                        Injury Logs document injuries that the runner has suffered and how they are working on overcoming them.
+                    </p>
+                    <h2>
+                        <a asp-area="" asp-controller="WorkOut" asp-action="Index">Training Logs</a>
+                    </h2>
+                    <p>
+                        This is a place for runners to log their workouts and training activities.
+                    </p>
+                }
+                @if(User.IsInRole("Trainer")){
+                    <h2>
+                        <a asp-area="" asp-controller="Trainer" asp-action="Index">Rehab Options</a>
+                    </h2>
+                    <p>
+                        Trainers can view and edit the list of rehab options available to athletes.
+                    </p>
+                }
+                @if(User.IsInRole("Admin")){
+                    <h2>
+                        <a asp-area="" asp-controller="Admin" asp-action="Index">Admin Options</a>
+                    </h2>
+                    <p>
+                        Admins can view and edit the list of users and privledges within the group.
+                    </p>
+                }
+            </div>
+        </div>
+    </li>
 </body>

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Book.Repositories
+namespace Injury.Repositories
 {
-    public interface IBookRepository
+    public interface IInjuryRepository
     {
         InjuryModel Get(int id);
         Task<List<InjuryModel>> GetList();
         Task<List<InjuryModel>> SearchList(string searchText);
-        void Save(InjuryModel Book);
+        void Save(InjuryModel Injury);
         void Delete(int id);
     }
 }

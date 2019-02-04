@@ -14,12 +14,12 @@ namespace Lab8.Models
         [DisplayName("Rehab Name")]
         [Required(ErrorMessage="Rehab Name Required")]
         [StringLength(40)]
-        public string rName;
+        public string Name {get; set;}
 
         [DisplayName("Rehab Description")]
         [Required(ErrorMessage="Explain what this Rehab is and what it is used for")]
-        public string rDescription;
+        public string Description {get; set;}
 
-        public int timesUsed;
+        public int timesUsed {get; set;}
     } 
 }
