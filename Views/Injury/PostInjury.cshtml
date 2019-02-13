@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject UserManager<Lab8Model> UserMan 
+@model Lab8.Models.InjuryModel
+@{
+    ViewData["Title"] = "PostInjury";
+}
+<body>
+    <h1>
+        Post New Injury
+    </h1>
+    
+@using (Html.BeginForm("PostInjury", "Injury", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
+
+<div class="form-group">    
+    @Html.LabelFor(m=>m.Name, new { @class = "control-label" })
+    @Html.TextBoxFor(m=>m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
+</div>
+<div class="form-group">    
+    @Html.LabelFor(m=>m.Date, new { @class = "control-label" })
+    @Html.EditorFor(m=>m.Date, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Date)
+</div>
+<div class="form-group">    
+    @Html.LabelFor(m=>m.InjuryCause, new { @class = "control-label" })
+    @Html.TextBoxFor(m=>m.InjuryCause, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.InjuryCause)
+</div>
+<div class="form-group">    
+    @Html.LabelFor(m=>m.Summary, new { @class = "control-label" })
+    @Html.TextAreaFor(m=>m.Summary, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Summary)
+</div>
+<div class="form-group">    
+    @Html.LabelFor(m=>m.Pain, new { @class = "control-label" })
+    @Html.EditorFor(m=>m.Pain, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Pain)
+</div>
+<div class="form-group">    
+    @Html.LabelFor(m=>m.Length, new { @class = "control-label" })
+    @Html.EditorFor(m=>m.Length, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Length)
+</div>
+   <button type="submit" class="btn btn-primary">Post Injury</button>
+}
+</body>

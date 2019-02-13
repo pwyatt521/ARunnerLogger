@@ -16,24 +16,24 @@
     <input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
 
     <div class="form-group">    
-        @Html.LabelFor(m=>m.WName, new { @class = "control-label" })
-        @Html.TextBoxFor(m=>m.WName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.WName)
+        @Html.LabelFor(m=>m.Name, new { @class = "control-label" })
+        @Html.TextBoxFor(m=>m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">    
-        @Html.LabelFor(m=>m.WDescription, new { @class = "control-label" })
-        @Html.TextAreaFor(m=>m.WDescription, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.WDescription)
+        @Html.LabelFor(m=>m.Description, new { @class = "control-label" })
+        @Html.TextAreaFor(m=>m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
     </div>
     <div class="form-group">    
-        @Html.LabelFor(m=>m.WRating, new { @class = "control-label" })
-        @Html.EditorFor(m=>m.WRating, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.WRating)
+        @Html.LabelFor(m=>m.Rating, new { @class = "control-label" })
+        @Html.EditorFor(m=>m.Rating, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Rating)
     </div>
     <div class="form-group">    
-        @Html.LabelFor(m=>m.WDate, new { @class = "control-label" })
-        @Html.EditorFor(m=>m.WDate, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.WDate)
+        @Html.LabelFor(m=>m.Date, new { @class = "control-label" })
+        @Html.EditorFor(m=>m.Date, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Date)
     </div>
    <button type="submit" class="btn btn-primary">Post Blog</button>
 }

@@ -2,36 +2,58 @@
 @using Lab8.Areas.Identity.Data
 @inject RoleManager<IdentityRole> RoleMan
 @inject UserManager<Lab8Model> UserMan 
+@model IEnumerable<NewsModel>
 @{
     ViewData["Title"] = "Home";
 }
 <body>
     <li class="list-group-item">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-5">
+                @if (User.IsInRole("Coach")) {
+                    <h3>
+                    <a asp-area="" asp-controller="Coach" asp-action="PostNews">Post News</a>
+                    </h3>
+                }
                 <h1>
-                    News
+                    <a asp-area="" asp-controller="Coach" asp-action="Index">News</a>
                 </h1>
+                <ul class="list-group">
+            @foreach (var news in Model)
+            {   
+            <li class="list-group-item">
+                    <div class="row">
+                        <p>
+                            <a href="@Url.Action("View", "Coach", new { @id = news.ID })">@news.Title</a>
+                            @if (@news.Date > DateTime.Now.AddDays(-1)){
+                                <strong>NEW</strong>
+                            }
+                        </p>
+                    </div>
+                </li>
+
+            }
+        </ul>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-7">
                 <h1>
                     Home
                 </h1>
-                @if (User.IsInRole("Coach,Runner,Trainer")) {
+                @if (User.IsInRole("Coach")||User.IsInRole("Runner")||User.IsInRole("Trainer")) {
                     <h2>
                         <a asp-area="" asp-controller="Health" asp-action="Index">Health Logs</a>
                     </h2>
                     <p>
                         Health Logs document the runner's general health.
                     </p>
-                }
-                @if (User.IsInRole("Coach,Runner")) {
                     <h2>
                         <a asp-area="" asp-controller="Injury" asp-action="Index">Injury Logs</a>
                     </h2>
                     <p>
                         Injury Logs document injuries that the runner has suffered and how they are working on overcoming them.
                     </p>
+                }
+                @if (User.IsInRole("Coach")||User.IsInRole("Runner")) {
                     <h2>
                         <a asp-area="" asp-controller="WorkOut" asp-action="Index">Training Logs</a>
                     </h2>

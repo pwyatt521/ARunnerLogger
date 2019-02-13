@@ -11,6 +11,9 @@ namespace Lab8.Models
     public class InjuryLogModel{
         public int ID { get; set; }
 
+        [DisplayName("Injury associated with log if any")]        
+        public int InjuryID {get; set;}
+
         [DisplayName("Injury Log Date")]
         [Required (ErrorMessage = "Date Required")]
         public DateTime Date{get; set;}
@@ -19,7 +22,7 @@ namespace Lab8.Models
         [Required (ErrorMessage = "Injury Description Required")]
         public string Description{get; set;}
 
-        [DisplayName("Pain Rating")]
+        [DisplayName("Pain Rating 0-10")]
         [Range(0,10)]
         [Required (ErrorMessage = "Pain Rating 0-10 Required")]
         public int Rating{get; set;}

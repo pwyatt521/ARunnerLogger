@@ -15,27 +15,27 @@ namespace Lab8.Models
         
         [DisplayName("Injury Name")]
         [Required (ErrorMessage = "Injury Name Required")]
-        public string BTitle{get; set;}
+        public string Name{get; set;}
 
         [DisplayName("Injury Cause")]
         [Required (ErrorMessage = "Injury Cause Required")]
-        public string BAuthor{get; set;}
+        public string InjuryCause{get; set;}
 
         [DisplayName("Injury Summary (Where it hurts and what hurts to do)")]
         [Required (ErrorMessage = "Injury Summary Required")]
-        public string BSummary{get; set;}
+        public string Summary{get; set;}
 
-        [DisplayName("Pain Rating")]
-        [Range(1,10)]
-        [Required (ErrorMessage = "Rating 1-10 Required")]
-        public int BRating{get; set;}
+        [DisplayName("Injury Pain 0-10")]
+        [Range(0,10)]
+        [Required (ErrorMessage = "Pain 0-10 Required")]
+        public int Pain{get; set;}
 
         [DisplayName("Injured Date")]
-        public DateTime BDate{get; set;}
+        public DateTime Date{get; set;}
 
-        [DisplayName("Duration out of Competition (1= out for a workout, 10 = out for more than a year")]
-        [Range(1, 10, ErrorMessage="Injury Must have severity Level")]
-        public int BLength {get; set;}
+        [DisplayName("Duration out of competition (0=Missed nothing, 3= out for a workout, 10 = out for a season or more)")]
+        [Range(0, 10, ErrorMessage="Injury must have severity Level")]
+        public int Length {get; set;}
 
         [DisplayName("User who posted this Injury Report")]
         [Required]

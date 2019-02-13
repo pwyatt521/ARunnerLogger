@@ -16,6 +16,7 @@ using Health.Repositories;
 using Injury.Repositories;
 using WorkOut.Repositories;
 using Rehab.Repositories;
+using Coach.Repositories;
 using System.Data.SqlClient;
 
 namespace Lab8
@@ -56,6 +57,8 @@ namespace Lab8
             services.AddTransient<IRehabRepository, RehabCachingDBRepository>();
             services.AddTransient<IWorkOutRepository, WorkOutCachingDBRepository>();
             services.AddTransient<IInjuryRepository, InjuryCachingDBRepository>();
+            services.AddTransient<ICoachRepository, CoachCachingDBRepository>();
+
             //services.AddTransient<ICacheRepository, CacheRepository>();
         }
 

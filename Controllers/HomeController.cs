@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Lab8.Models;
+using Coach.Repositories;
 using Lab8.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 
@@ -16,14 +17,18 @@ namespace Lab8.Controllers
     {
         private RoleManager<IdentityRole> _RoleManager;
         private UserManager<Lab8Model> _UserManager;
-        public HomeController(RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager)
+        private ICoachRepository _CoachRepo;
+        public HomeController(RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager, ICoachRepository coachRepo)
         {
             _RoleManager = roleManager;
             _UserManager = userManager;
+            _CoachRepo = coachRepo;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {   
-            return View();
+            List<NewsModel> newsList = new List<NewsModel>();
+            newsList.AddRange(await _CoachRepo.GetList());
+            return View(newsList.Where(m=>m.Date > DateTime.Now.AddDays(-7)));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -15,14 +15,20 @@ namespace Lab8.Models
         [Required (ErrorMessage = "Health Date Required")]
         public string AName{get; set;}
 
+        /*
+        [DisplayName("Date")]
+        [Required (ErrorMessage = "Log Date Required")]
+        public string Date{get; set;}
+         */
+
         [DisplayName("Health Description")]
         [Required (ErrorMessage = "Health Description Required")]
-        public string ADescription{get; set;}
+        public string Description{get; set;}
 
-        [DisplayName("Health Rating")]
-        [Range(0,7)]
-        [Required (ErrorMessage = "Health Rating 0-7 Required")]
-        public int ARating{get; set;}
+        [DisplayName("Health Rating 0-5")]
+        [Range(0,5)]
+        [Required (ErrorMessage = "Health Rating 0-5 Required")]
+        public int Rating{get; set;}
 
         [DisplayName("User who posted this Health Log")]
         [Required (ErrorMessage = "Invalid User")]

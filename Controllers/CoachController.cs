@@ -10,40 +10,41 @@ using Lab8.Areas.Identity.Data;
 using Microsoft.Extensions.Options;
 using Injury.Repositories;
 using Microsoft.Extensions.Caching.Memory;
-using Rehab.Repositories;
+using Coach.Repositories;
 
 namespace Lab8.Controllers
 {
-    [Authorize (Roles="Trainer")]
-    public class TrainerController : Controller
+    [Authorize (Roles="Coach,Runner,Trainer,Admin")]
+    public class CoachController : Controller
     {
-        private IRehabRepository _RehabRepo;
+        private ICoachRepository _CoachRepo;
         private Lab8Settings _Settings;
         private IMemoryCache _Cache;
-         public TrainerController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, IRehabRepository RehabRepo)
+         public CoachController(IMemoryCache cache,IOptionsSnapshot<Lab8Settings> settings, ICoachRepository CoachRepo)
         {
             _Settings = settings.Value;
             _Cache = cache;
-            _RehabRepo = RehabRepo; 
+            _CoachRepo = CoachRepo; 
         }
         public async Task<IActionResult> Index()
         {
-            List<RehabModel> RehabList = new List<RehabModel>();
-            RehabList.AddRange(await  _RehabRepo.GetList());
-            return View(RehabList);
+            List<NewsModel> NewsList = new List<NewsModel>();
+            NewsList.AddRange(await  _CoachRepo.GetList());
+            return View(NewsList);
         }
 
+        [Authorize (Roles="Coach,Admin")]
         [HttpGet]
-        public IActionResult PostRehab()
+        public IActionResult PostNews()
         {
-            RehabModel model = new RehabModel();
-            model.timesUsed = 0;
+            NewsModel model = new NewsModel();
+            model.Date = DateTime.Now;
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PostRehab(RehabModel model)
+        public IActionResult PostNews(NewsModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -52,29 +53,30 @@ namespace Lab8.Controllers
             return Create(model);
         }
 
-        protected IActionResult Create(RehabModel model)
+        protected IActionResult Create(NewsModel model)
         {
-            _RehabRepo.Save(model);
+            _CoachRepo.Save(model);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            RehabModel Rehab = _RehabRepo.Get(id);
-            return View(Rehab);
+            NewsModel News = _CoachRepo.Get(id);
+            return View(News);
         }
         public IActionResult View(int id)
         {
-            RehabModel a = _RehabRepo.Get(id);
+            NewsModel a = _CoachRepo.Get(id);
             return View(a);
         }
 
+        [Authorize (Roles="Coach,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _RehabRepo.Delete(id);
+            _CoachRepo.Delete(id);
             return RedirectToAction("Index");
         }
 

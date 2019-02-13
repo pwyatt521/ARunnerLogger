@@ -16,9 +16,14 @@
     {
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-8">
                     <p>
                         <a href="@Url.Action("View", "Health", new { @id = adventure.ID })">@adventure.AName</a>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <p>
+                        <a href="@Url.Action("View", "Health", new { @id = adventure.ID })">@adventure.Rating</a>
                     </p>
                 </div>
                 <div class="col-md-2">

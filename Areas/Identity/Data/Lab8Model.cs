@@ -11,5 +11,6 @@ namespace Lab8.Areas.Identity.Data
     {
         public string FunFact { get; set; }
         public int Age { get; set; }
+        public int GroupID {get; set;}
     }
 }

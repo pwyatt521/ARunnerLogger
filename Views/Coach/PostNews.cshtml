@@ -1,0 +1,29 @@
+@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject UserManager<Lab8Model> UserMan 
+@model Lab8.Models.NewsModel
+
+@{
+    ViewData["Title"] = "PostNews";
+}
+<body>
+    <h1>
+        Post News for @Model.Date
+    </h1>
+@using (Html.BeginForm("PostNews", "Coach", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    //<input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.Title, new { @class = "control-label" })
+        @Html.TextBoxFor(m=>m.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.Message, new { @class = "control-label" })
+        @Html.TextAreaFor(m=>m.Message, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Message)
+    </div>
+   <button type="submit" class="btn btn-primary">Post News</button>
+}
+</body>

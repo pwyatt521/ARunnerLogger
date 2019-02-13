@@ -1,19 +1,23 @@
 @model  InjuryModel
 <body>
     <h1>
-        @Html.DisplayFor(m => m.BTitle)
+        @Html.DisplayFor(m => m.Name)
     </h1>
     <h2>
-        @Html.DisplayFor(m => m.BAuthor)
+        @Html.DisplayFor(m => m.InjuryCause)
     </h2>
-    <h2>
-        @Html.DisplayFor(m => m.BRating)
-        / 10 stars
-    </h2>
+    <h3>
+        @Html.DisplayFor(m => m.Date)
+    </h3>
+    <h3>
+        @Html.DisplayFor(m => m.Pain)
+        / 10 Pain
+    </h3>
     <p>
-        @Html.DisplayFor(m=>m.BSummary)
+        @Html.DisplayFor(m=>m.Summary)
     </p>
     <p>
-        @Html.DisplayFor(m=>m.BLength)
+        Out with severity level of: @Html.DisplayFor(m=>m.Length)
     </p>
+    
 </body>

@@ -58,7 +58,7 @@ namespace Lab8.Controllers
         {
             HealthModel model = new HealthModel();
             model.AName = _Settings.DefaultName;
-            model.ARating = _Settings.DefaultRating;
+            model.Rating = _Settings.DefaultRating;
             return View(model);
         }
 

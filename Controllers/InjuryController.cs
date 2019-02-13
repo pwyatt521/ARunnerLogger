@@ -33,18 +33,16 @@ namespace Lab8.Controllers
         }
         [Authorize (Roles="Runner")]
         [HttpGet]
-        public IActionResult PostBlog()
+        public IActionResult PostInjury()
         {
             InjuryModel model = new InjuryModel();
-            model.BTitle = _Settings.DefaultName;
-            model.BRating = _Settings.DefaultRating;
-            model.PostedBy = _Settings.DefaultUser;
+            model.Date = DateTime.Now;
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult PostBlog(InjuryModel model)
+        public IActionResult PostInjury(InjuryModel model)
         {
             if (!ModelState.IsValid)
             {

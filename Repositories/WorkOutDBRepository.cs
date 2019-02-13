@@ -44,10 +44,10 @@ namespace WorkOut.Repositories
                         {
                             WorkOut = new WorkOutModel();
                             WorkOut.ID = (int) reader["ID"];
-                            WorkOut.WName = reader["WName"].ToString();
-                            WorkOut.WDescription =  reader["WDescription"].ToString();
-                            WorkOut.WRating = (int) reader["WRating"];
-                            WorkOut.WDate = (DateTime) reader["WDate"];
+                            WorkOut.Name = reader["WName"].ToString();
+                            WorkOut.Description =  reader["WDescription"].ToString();
+                            WorkOut.Rating = (int) reader["WRating"];
+                            WorkOut.Date = (DateTime) reader["WDate"];
                             WorkOut.PostedBy =  reader["PostedBy"].ToString();
                         }
                     }
@@ -60,7 +60,7 @@ namespace WorkOut.Repositories
 
         public virtual async Task<List<WorkOutModel>> SearchList(string searchText)
         {
-            List<WorkOutModel> WorkOutList = (await GetList()).Where(a => a.WName.ToLower().Contains(searchText.ToLower())).ToList();
+            List<WorkOutModel> WorkOutList = (await GetList()).Where(a => a.Name.ToLower().Contains(searchText.ToLower())).ToList();
             return WorkOutList;
         }
         public virtual async Task<List<WorkOutModel>> GetList()
@@ -78,10 +78,10 @@ namespace WorkOut.Repositories
                         {
                             WorkOutModel WorkOut = new WorkOutModel();
                             WorkOut.ID = (int) reader["ID"];
-                            WorkOut.WName = reader["WName"].ToString();
-                            WorkOut.WDescription =  reader["WDescription"].ToString();
-                            WorkOut.WRating = (int) reader["WRating"];
-                            WorkOut.WDate = (DateTime) reader["WDate"];
+                            WorkOut.Name = reader["WName"].ToString();
+                            WorkOut.Description =  reader["WDescription"].ToString();
+                            WorkOut.Rating = (int) reader["WRating"];
+                            WorkOut.Date = (DateTime) reader["WDate"];
                             WorkOut.PostedBy =  reader["PostedBy"].ToString();
                         
                             WorkOutList.Add(WorkOut);
@@ -102,10 +102,10 @@ namespace WorkOut.Repositories
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     command.Parameters.AddWithValue("@ID", WorkOut.ID);
-                    command.Parameters.AddWithValue("@WName", WorkOut.WName);
-                    command.Parameters.AddWithValue("@WDescription", WorkOut.WDescription);
-                    command.Parameters.AddWithValue("@WRating", WorkOut.WRating);
-                    command.Parameters.AddWithValue("@WDate", WorkOut.WDate);
+                    command.Parameters.AddWithValue("@WName", WorkOut.Name);
+                    command.Parameters.AddWithValue("@WDescription", WorkOut.Description);
+                    command.Parameters.AddWithValue("@WRating", WorkOut.Rating);
+                    command.Parameters.AddWithValue("@WDate", WorkOut.Date);
                     command.Parameters.AddWithValue("@PostedBy", WorkOut.PostedBy);
                     int rows = command.ExecuteNonQuery();
                     if (rows <= 0)
@@ -136,9 +136,9 @@ namespace WorkOut.Repositories
     {
         public override int Compare(WorkOutModel x, WorkOutModel y)
         {
-            if (x.WDate > y.WDate)
+            if (x.Date > y.Date)
                 return -1;
-            else if (x.WDate <y.WDate)
+            else if (x.Date <y.Date)
                 return 1;
             else 
                 return 0;

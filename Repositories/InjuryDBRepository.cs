@@ -45,11 +45,11 @@ namespace Injury.Repositories
                         {
                             Injury = new InjuryModel();
                             Injury.ID = (int) reader["ID"];
-                            Injury.BTitle = reader["BTitle"].ToString();
-                            Injury.BAuthor = reader["BAuthor"].ToString();
-                            Injury.BSummary =  reader["BSummary"].ToString();
-                            Injury.BRating = (int) reader["BRating"];
-                            Injury.BLength = (int) reader["BLength"];
+                            Injury.Name = reader["BTitle"].ToString();
+                            Injury.InjuryCause = reader["BAuthor"].ToString();
+                            Injury.Summary =  reader["BSummary"].ToString();
+                            Injury.Pain = (int) reader["BRating"];
+                            Injury.Length = (int) reader["BLength"];
                             Injury.PostedBy =  reader["PostedBy"].ToString();
                         }
                     }
@@ -62,7 +62,7 @@ namespace Injury.Repositories
 
         public virtual async Task<List<InjuryModel>> SearchList(string searchText)
         {
-            List<InjuryModel> InjuryList = (await GetList()).Where(a => a.BTitle.ToLower().Contains(searchText.ToLower())).ToList();
+            List<InjuryModel> InjuryList = (await GetList()).Where(a => a.Name.ToLower().Contains(searchText.ToLower())).ToList();
             return InjuryList;
         }
         public virtual async Task<List<InjuryModel>> GetList()
@@ -80,11 +80,11 @@ namespace Injury.Repositories
                         {
                             InjuryModel Injury = new InjuryModel();
                             Injury.ID = (int) reader["ID"];
-                            Injury.BTitle = reader["BTitle"].ToString();
-                            Injury.BAuthor = reader["BAuthor"].ToString();
-                            Injury.BSummary =  reader["BSummary"].ToString();
-                            Injury.BRating = (int) reader["BRating"];
-                            Injury.BLength = (int) reader["BLength"];
+                            Injury.Name = reader["BTitle"].ToString();
+                            Injury.InjuryCause = reader["BAuthor"].ToString();
+                            Injury.Summary =  reader["BSummary"].ToString();
+                            Injury.Pain = (int) reader["BRating"];
+                            Injury.Length = (int) reader["BLength"];
                             Injury.PostedBy =  reader["PostedBy"].ToString();
                             InjuryList.Add(Injury);
                         }
@@ -105,11 +105,11 @@ namespace Injury.Repositories
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     command.Parameters.AddWithValue("@ID", Injury.ID);
-                    command.Parameters.AddWithValue("@BTitle", Injury.BTitle);
-                    command.Parameters.AddWithValue("@BAuthor", Injury.BAuthor);
-                    command.Parameters.AddWithValue("@BSummary", Injury.BSummary);
-                    command.Parameters.AddWithValue("@BRating", Injury.BRating);
-                    command.Parameters.AddWithValue("@BLength", Injury.BLength);
+                    command.Parameters.AddWithValue("@BTitle", Injury.Name);
+                    command.Parameters.AddWithValue("@BAuthor", Injury.InjuryCause);
+                    command.Parameters.AddWithValue("@BSummary", Injury.Summary);
+                    command.Parameters.AddWithValue("@BRating", Injury.Pain);
+                    command.Parameters.AddWithValue("@BLength", Injury.Length);
                     command.Parameters.AddWithValue("@PostedBy", Injury.PostedBy);
                     int rows = command.ExecuteNonQuery();
                     if (rows <= 0)

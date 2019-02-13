@@ -12,13 +12,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Lab8;
 
-namespace Health.Repositories
+namespace Coach.Repositories
 {
-    public class HealthDBRepository : IHealthRepository
+    public class CoachDBRepository : ICoachRepository
     {
         private IConfiguration Configuration;
         private string conString;
-        public HealthDBRepository( IConfiguration config)
+        public CoachDBRepository( IConfiguration config)
         {
             Configuration = config;
             
@@ -28,12 +28,12 @@ namespace Health.Repositories
             conString = sbuilder.ConnectionString;
         }
         
-        public virtual HealthModel Get(int id)
+        public virtual NewsModel Get(int id)
         {
-            HealthModel Health = null;
+            NewsModel news = null;
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_Get", connection))
+                using (SqlCommand command = new SqlCommand("News_Get", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ID", id);
@@ -42,32 +42,31 @@ namespace Health.Repositories
                     {
                         if (reader.Read())
                         {
-                            Health = new HealthModel();
-                            Health.ID = (int) reader["ID"];
-                            Health.AName = reader["AName"].ToString();
-                            Health.Description =  reader["ADescription"].ToString();
-                            Health.Rating = (int) reader["ARating"];
-                            Health.PostedBy =  reader["PostedBy"].ToString();
+                            news = new NewsModel();
+                            news.ID = (int) reader["ID"];
+                            news.Title = reader["Title"].ToString();
+                            news.Message =  reader["Message"].ToString();
+                            news.Date = (DateTime) reader["Date"];
                         }
                     }
                 }
 
             }
-            return Health;
+            return news;
         }
 
-
-        public virtual async Task<List<HealthModel>> SearchList(string searchText)
+// Make precedure in database
+        /* public virtual async Task<List<NewsModel>> SearchList(string searchText)
         {
-            List<HealthModel> HealthList = (await GetList()).Where(a => a.AName.ToLower().Contains(searchText.ToLower())).ToList();
-            return HealthList;
-        }
-        public virtual async Task<List<HealthModel>> GetList()
+            List<HealthModel> AdventureList = (await GetList()).Where(a => a.AName.ToLower().Contains(searchText.ToLower())).ToList();
+            return AdventureList;
+        }*/
+        public virtual async Task<List<NewsModel>> GetList()
         {
-            List<HealthModel> HealthList = new List<HealthModel>();
+            List<NewsModel> newsList = new List<NewsModel>();
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_GetList", connection))
+                using (SqlCommand command = new SqlCommand("News_GetList", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     await connection.OpenAsync();
@@ -75,40 +74,38 @@ namespace Health.Repositories
                     {
                         while (reader.Read())
                         {
-                            HealthModel Health = new HealthModel();
-                            Health.ID = (int) reader["ID"];
-                            Health.AName = reader["AName"].ToString();
-                            Health.Description =  reader["ADescription"].ToString();
-                            Health.Rating = (int) reader["ARating"];
-                            Health.PostedBy =  reader["PostedBy"].ToString();
-                        
-                            HealthList.Add(Health);
+                            NewsModel news = new NewsModel();
+                            news.ID = (int) reader["ID"];
+                            news.Title = reader["Title"].ToString();
+                            news.Message =  reader["Message"].ToString();
+                            news.Date = (DateTime) reader["Date"];
+                            newsList.Add(news);
                         }
                     }
                 }
 
             }
-            return HealthList;
+            return newsList;
         }
 
 
-        public virtual void Save(HealthModel Health)
+        public virtual void Save(NewsModel news)
         {
+            if (news.Date == DateTime.MinValue)
+                news.Date = DateTime.Now;
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_InsertUpdate", connection))
+                using (SqlCommand command = new SqlCommand("News_Insert", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
-                    command.Parameters.AddWithValue("@ID", Health.ID);
-                    command.Parameters.AddWithValue("@AName", Health.AName);
-                    command.Parameters.AddWithValue("@ADescription", Health.Description);
-                    command.Parameters.AddWithValue("@ARating", Health.Rating);
-                    command.Parameters.AddWithValue("@PostedBy", Health.PostedBy);
+                    command.Parameters.AddWithValue("@Title", news.Title);
+                    command.Parameters.AddWithValue("@Message", news.Message);
+                    command.Parameters.AddWithValue("@Date", news.Date);
                     int rows = command.ExecuteNonQuery();
                     if (rows <= 0)
                     {
-                        Console.Error.WriteLine("Didn't Work");
+                        Console.Error.WriteLine("Error posting News Option database");
                     }
                 }
             }
@@ -117,7 +114,7 @@ namespace Health.Repositories
         {
             using (SqlConnection connection = new SqlConnection(conString))
             {
-                using (SqlCommand command = new SqlCommand("Adventure_Delete", connection))
+                using (SqlCommand command = new SqlCommand("News_Delete", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();

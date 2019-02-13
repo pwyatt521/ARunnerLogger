@@ -13,20 +13,20 @@ namespace Lab8.Models
 
         [DisplayName("Workout Name")]
         [Required (ErrorMessage = "Workout Name Required")]
-        public string WName{get; set;}
+        public string Name{get; set;}
 
         [DisplayName("Workout Description")]
         [Required (ErrorMessage = "Workout Description Required")]
-        public string WDescription{get; set;}
+        public string Description{get; set;}
 
         [DisplayName("Workout Difficulty")]
         [Range(1,10)]
         [Required (ErrorMessage = "Difficulty Rating 1-10 Required")]
-        public int WRating{get; set;}
+        public int Rating{get; set;}
 
         [DisplayName("Workout Date")]
         [Required (ErrorMessage = "Date Required")]
-        public DateTime WDate{get; set;}
+        public DateTime Date{get; set;}
 
         [DisplayName("User who posted this Workout")]
         [Required]
