@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab8.Migrations
 {
     [DbContext(typeof(Lab8IdentityDbContext))]
-    [Migration("20181128202214_CreateIdentitySchema")]
+    [Migration("20190226195836_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,8 @@ namespace Lab8.Migrations
 
                     b.Property<int>("Age");
 
+                    b.Property<string>("Bio");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -38,7 +40,7 @@ namespace Lab8.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FunFact");
+                    b.Property<int>("GroupID");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -142,11 +144,9 @@ namespace Lab8.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -177,11 +177,9 @@ namespace Lab8.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 

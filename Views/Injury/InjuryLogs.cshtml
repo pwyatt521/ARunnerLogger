@@ -1,0 +1,43 @@
+@model Lab8.Controllers.InjuryController.InjuryLogsInputModel
+@{
+    ViewData["Title"] = "InjuryLogs";
+}
+<body>
+    <h1>
+        Injury Logs for Injury
+    </h1>
+<ul class="list-group">
+     <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>
+                        Date:
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <p>Pain Rating:</p>
+                </div>
+            </div>
+        </li>
+    @foreach (var log in Model.logModels)
+    {
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>
+                        <a href="@Url.Action("ViewLog", "Injury", new { @id = log.ID })">@log.Date</a>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                        <a href="@Url.Action("ViewLog", "Injury", new { @id = log.ID })">@log.Rating</a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+    <h2>
+        <div>
+                <a href="@Url.Action("PostInjuryLog", "Injury", new { @id = Model.ID })">Post New Injury Log</a>
+        </div>
+    </h2>
+</body>

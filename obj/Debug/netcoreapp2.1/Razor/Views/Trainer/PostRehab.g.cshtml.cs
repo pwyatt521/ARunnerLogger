@@ -56,7 +56,7 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(72, 711, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c9751884f63a4dbfba001a375056cc30", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbb58c5a28ad4a6aa320917c983f83f0", async() => {
                 BeginContext(78, 50, true);
                 WriteLiteral("\n    <h1>\n        Add Rehab Option\n    </h1>\n    \n");
                 EndContext();

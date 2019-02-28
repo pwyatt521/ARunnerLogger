@@ -36,7 +36,7 @@ namespace Lab8.Controllers
         public IActionResult PostBlog()
         {
             WorkOutModel model = new WorkOutModel();
-            model.Rating = _Settings.DefaultRating;
+            model.Rating = 5;
             model.Date = DateTime.Now;
             return View(model);
         }

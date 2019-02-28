@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Lab8.Areas.Identity.Data;
+using Lab8.Models;
+using Repositories.Group;
 
 namespace Lab8.Controllers
 {
@@ -15,13 +17,14 @@ namespace Lab8.Controllers
     public class AdminController : Controller
     {
 
+        private IGroupRepository _GroupRepo;
         private RoleManager<IdentityRole> _RoleManager;
         private UserManager<Lab8Model> _UserManager;
-        public AdminController(RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager)
+        public AdminController(RoleManager<IdentityRole> roleManager, UserManager<Lab8Model> userManager, IGroupRepository groupRepo)
         {
-
             _RoleManager = roleManager;
             _UserManager = userManager;
+            _GroupRepo = groupRepo;
         }
         // GET: /<controller>/
         public IActionResult Index()
@@ -94,8 +97,30 @@ namespace Lab8.Controllers
             if (!result.Succeeded)
             {
                 throw new Exception(result.Errors.Select(e => e.Description).Aggregate((a, b) => a + "," + b));
-
             }
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> EditGroup(){
+            var user = await _UserManager.GetUserAsync(User);
+            GroupModel group = _GroupRepo.Get(user.GroupID);
+            return View(group);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditGroup(GroupModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            return Update(model);
+        }
+
+        protected IActionResult Update(GroupModel model)
+        {
+            _GroupRepo.Update(model);
             return RedirectToAction("Index");
         }
     }

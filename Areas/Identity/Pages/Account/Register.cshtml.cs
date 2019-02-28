@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Lab8.Models;
 
 namespace Lab8.Areas.Identity.Pages.Account
 {
@@ -20,18 +21,19 @@ namespace Lab8.Areas.Identity.Pages.Account
         private readonly UserManager<Lab8Model> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
         public RegisterModel(
             UserManager<Lab8Model> userManager,
             SignInManager<Lab8Model> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
+            
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
         }
+        public List<GroupModel> groups{get;set;}
 
         [BindProperty]
         public InputModel Input { get; set; }
@@ -45,14 +47,12 @@ namespace Lab8.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required (ErrorMessage = "Must enter a fun fact")]            
-            [Display(Name = "FunFact")]
-            public string FunFact { get; set; }
+            [Display(Name = "Bio")]
+            public string Bio { get; set; }
 
             [Required (ErrorMessage = "Must enter an age")]
             [Display(Name = "Age")]
             public int Age { get; set; }
-
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -77,7 +77,7 @@ namespace Lab8.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new Lab8Model { UserName = Input.Email, Email = Input.Email,
-                    FunFact = Input.FunFact, Age = Input.Age };
+                    Bio = Input.Bio, Age = Input.Age, GroupID = 0};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

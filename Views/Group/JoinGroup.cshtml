@@ -1,0 +1,37 @@
+@model IEnumerable<GroupModel>
+@{
+    ViewData["Title"] = "JoinGroup";
+}
+<body>
+    <h1>
+        Join New Group
+    </h1>
+<ul class="list-group">
+    <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>Group Name</p>
+                </div>
+                <div class="col-md-2">
+                    <p>Group ID</p>
+                </div>
+            </div>
+        </li>
+    @foreach (var group in Model)
+    {
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-10">
+                    <p>
+                        <a href="@Url.Action("View", "Group", new { @id = group.ID })">@group.Name</a>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                        <a href="@Url.Action("View", "Group", new { @id = group.ID })">@group.ID</a>
+                </div>
+            </div>
+        </li>
+
+    }
+</ul>
+</body>

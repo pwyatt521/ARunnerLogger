@@ -1,0 +1,34 @@
+@model GroupModel
+@{
+    ViewData["Title"] = "Group";
+}
+<body>
+    <h1>
+        @Model.Name
+    </h1>
+    <p>
+        @Model.Description
+    </p>
+    <h3>
+        Group Size: @Model.NumberOfMembers
+    </h3>
+    <h3>
+        Group Type: @Model.Type;
+    </h3>
+    <h4>
+        Created: @Model.DateCreated
+    </h4>
+    <p>
+        Note: Each user can only be a part of one group at a time.
+    </p>
+    <h2>
+        <div>
+            <a asp-area="" asp-controller="Group" asp-action="Index">Back to Home Group</a> 
+        </div>
+    </h2>
+    <h2>
+        <div>
+            <a asp-area="" asp-controller="Group" asp-action="JoinGroup">Browse Groups</a>
+        </div>
+    </h2>
+</body>

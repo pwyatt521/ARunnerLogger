@@ -14,6 +14,9 @@ namespace Lab8.Models
         [DisplayName("Injury associated with log if any")]        
         public int InjuryID {get; set;}
 
+        [DisplayName("Primary Rehab Option Used")]
+        public int RehabID {get; set;}
+
         [DisplayName("Injury Log Date")]
         [Required (ErrorMessage = "Date Required")]
         public DateTime Date{get; set;}

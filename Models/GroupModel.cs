@@ -25,6 +25,8 @@ namespace Lab8.Models
 
         public int NumberOfMembers {get; set;}
 
+        public DateTime DateCreated {get; set;}
+
         public static readonly List<string> GroupTypes = new List<string>{
             "High School", "College", "Professional", "Casual", "Other"
         };

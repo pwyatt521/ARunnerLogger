@@ -77,7 +77,7 @@ using Lab8.Areas.Identity.Data;
             WriteLiteral("    <h2>\n    Delete User\n    </h2>\n       ");
             EndContext();
             BeginContext(231, 369, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a622af35d864468ad414a42f13ac408", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cc8cb2dea8545d9beecdb722edcc606", async() => {
                 BeginContext(284, 9, true);
                 WriteLiteral("\n        ");
                 EndContext();
@@ -133,7 +133,7 @@ using Lab8.Areas.Identity.Data;
             WriteLiteral("\n    <h2>\n    Add User to Role\n    </h2>\n");
             EndContext();
             BeginContext(641, 615, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80d4c53eaf67466c97335a9445e217c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67d5f6451de84e07a92163e99cc3d9b5", async() => {
                 BeginContext(711, 5, true);
                 WriteLiteral("\n    ");
                 EndContext();

@@ -13,8 +13,9 @@
 @using (Html.BeginForm("PostInjury", "Injury", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    <input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
 
+    <input type="hidden" name="PostedBy" value=@Model.PostedBy />    
+    @Html.ValidationMessageFor(m => m.PostedBy)
 <div class="form-group">    
     @Html.LabelFor(m=>m.Name, new { @class = "control-label" })
     @Html.TextBoxFor(m=>m.Name, new { @class = "form-control" })

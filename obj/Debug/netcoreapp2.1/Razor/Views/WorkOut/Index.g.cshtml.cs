@@ -65,12 +65,12 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(82, 1355, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a50c04cecc644bb9e5c922995b79d60", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "047d5805f8d24aacb19be18e380bcb85", async() => {
                 BeginContext(88, 75, true);
                 WriteLiteral("\r\n    <h1>\r\n        Training Logs\r\n    </h1>\r\n    <h2>\r\n    <div>\r\n        ");
                 EndContext();
                 BeginContext(163, 78, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "401c931510c64623983844d4790ba53f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e6c7e0c654043f9b8dc343abf6eac7c", async() => {
                     BeginContext(225, 12, true);
                     WriteLiteral("Post Workout");
                     EndContext();
@@ -145,7 +145,7 @@ WriteAttributeValue("", 504, Url.Action("View", "WorkOut", new { @id = WorkOut.I
                 WriteLiteral("\r\n                    </p>\r\n                </div>\r\n                <div class=\"col-md-2\">\r\n                    ");
                 EndContext();
                 BeginContext(1001, 352, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "49f9605b5e344a27ac5a471ff8787da6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dfc8067cd9b64a61bf181c2598ef8393", async() => {
                     BeginContext(1087, 26, true);
                     WriteLiteral("\r\n                        ");
                     EndContext();

@@ -57,8 +57,6 @@ namespace Lab8.Controllers
         public IActionResult PostBlog()
         {
             HealthModel model = new HealthModel();
-            model.AName = _Settings.DefaultName;
-            model.Rating = _Settings.DefaultRating;
             return View(model);
         }
 

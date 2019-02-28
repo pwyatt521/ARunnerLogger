@@ -17,6 +17,8 @@ using Injury.Repositories;
 using WorkOut.Repositories;
 using Rehab.Repositories;
 using Coach.Repositories;
+using Repositories.Group;
+using Repositories.InjuryLog;
 using System.Data.SqlClient;
 
 namespace Lab8
@@ -57,9 +59,9 @@ namespace Lab8
             services.AddTransient<IRehabRepository, RehabCachingDBRepository>();
             services.AddTransient<IWorkOutRepository, WorkOutCachingDBRepository>();
             services.AddTransient<IInjuryRepository, InjuryCachingDBRepository>();
+            services.AddTransient<IInjuryLogRepository, InjuryLogCachingDBRepository>();
             services.AddTransient<ICoachRepository, CoachCachingDBRepository>();
-
-            //services.AddTransient<ICacheRepository, CacheRepository>();
+            services.AddTransient<IGroupRepository, GroupCachingDBRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

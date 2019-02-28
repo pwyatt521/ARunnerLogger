@@ -100,3 +100,11 @@
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Coach/PostNews.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Coach/View.g.cshtml.cs
 /Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/PostInjury.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Admin/EditGroup.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Group/CreateGroup.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Group/Index.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Group/JoinGroup.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Group/View.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/InjuryLogs.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/PostInjuryLog.g.cshtml.cs
+/Users/paulwyatt/Desktop/ARunnerLogger/ARunnerLogger/obj/Debug/netcoreapp2.1/Razor/Views/Injury/ViewLog.g.cshtml.cs

@@ -65,12 +65,12 @@ using Lab8.Models;
 #line default
 #line hidden
             BeginContext(67, 996, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712f30983474e57a6fe999373c32f28", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "122c59fd1a864bedba8f8be74a8706dc", async() => {
                 BeginContext(73, 68, true);
                 WriteLiteral("\n    <h1>\n        News\n    </h1>\n    <h2>\n        <div>\n            ");
                 EndContext();
                 BeginContext(141, 73, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f2a66060e4145b5a52dea1263b1b121", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea5c23b1f5e746dbae21d7accd5db7f3", async() => {
                     BeginContext(201, 9, true);
                     WriteLiteral("Post News");
                     EndContext();
@@ -125,7 +125,7 @@ WriteAttributeValue("", 467, Url.Action("View", "Coach", new { @id = news.ID }),
                 WriteLiteral("</a>\n                    </p>\n                </div>\n                <div class=\"col-md-2\">\n                    ");
                 EndContext();
                 BeginContext(643, 343, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc5f82c142fc473fbc743662ed0247be", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbc97c372b4642f9ba67c203aad3e7f7", async() => {
                     BeginContext(727, 25, true);
                     WriteLiteral("\n                        ");
                     EndContext();

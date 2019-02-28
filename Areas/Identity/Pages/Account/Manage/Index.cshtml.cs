@@ -40,7 +40,7 @@ public partial class IndexModel : PageModel
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Fun Fact")]
-        public string FunFact { get; set; }
+        public string Bio { get; set; }
 
         [Required]
         [Display(Name = "Years Old")]
@@ -53,6 +53,9 @@ public partial class IndexModel : PageModel
         [Phone]
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
+
+        [Display(Name = "Group")]
+        public int GroupID {get; set;}
     }
 
     public async Task<IActionResult> OnGetAsync()
@@ -71,10 +74,11 @@ public partial class IndexModel : PageModel
 
         Input = new InputModel
         {
-            FunFact = user.FunFact,
+            Bio = user.Bio,
             Age = user.Age,
             Email = email,
-            PhoneNumber = phoneNumber
+            PhoneNumber = phoneNumber,
+            GroupID = user.GroupID
         };
 
         IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
@@ -95,9 +99,9 @@ public partial class IndexModel : PageModel
             return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
         }
 
-        if (Input.FunFact != user.FunFact)
+        if (Input.Bio != user.Bio)
         {
-            user.FunFact = Input.FunFact;
+            user.Bio = Input.Bio;
         }
 
         if (Input.Age != user.Age)
@@ -105,6 +109,10 @@ public partial class IndexModel : PageModel
             user.Age = Input.Age;
         }
 
+        if (Input.GroupID != user.GroupID)
+        {
+            user.GroupID = Input.GroupID;
+        }
 
         var email = await _userManager.GetEmailAsync(user);
         if (Input.Email != email)

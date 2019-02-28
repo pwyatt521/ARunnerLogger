@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Identity
+@using Lab8.Areas.Identity.Data
+@inject UserManager<Lab8Model> UserMan 
+@model Lab8.Models.GroupModel
+
+@{
+    ViewData["Title"] = "EditGroup";
+}
+<body>
+    <h1>
+        Edit Group for group @Model.ID
+    </h1>
+@using (Html.BeginForm("EditGroup", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    //<input type="hidden" name="PostedBy" value=@UserMan.GetUserName(User) />
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.Name, new { @class = "control-label" })
+        @Html.TextBoxFor(m=>m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.Description, new { @class = "control-label" })
+        @Html.TextAreaFor(m=>m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">    
+        @Html.LabelFor(m=>m.Type, new { @class = "control-label" })
+        @Html.DropDownListFor(m=>m.Type, new SelectList(Lab8.Models.GroupModel.GroupTypes), new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+    
+   <button type="submit" class="btn btn-primary">Edit Group</button>
+}
+</body>

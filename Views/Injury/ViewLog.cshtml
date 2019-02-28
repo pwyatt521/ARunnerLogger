@@ -1,0 +1,16 @@
+@model  Lab8.Controllers.InjuryController.LogWithRehab
+<body>
+    <h1>
+        @Html.DisplayFor(m => m.log.Date)
+    </h1>
+    <h3>
+        Description of Rehab: @Html.DisplayFor(m => m.log.Description)
+    </h3>
+    <h3>
+        Rehab Used: @Html.DisplayFor(m => m.rehab.Name)
+    </h3>
+    <h3>
+        @Html.DisplayFor(m => m.log.Rating)
+        / 10 Pain
+    </h3>
+</body>
